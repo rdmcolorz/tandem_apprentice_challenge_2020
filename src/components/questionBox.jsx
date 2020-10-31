@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Jumbotron from "react-bootstrap/Jumbotron";
+import ListGroup from "react-bootstrap/ListGroup";
 
 class QuestionBox extends Component {
   shuffleArray(array) {
@@ -10,13 +11,25 @@ class QuestionBox extends Component {
   }
 
   render() {
-    let isStartGame = this.props.state.isStartGame;
+    let isStartGame = this.props.isStartGame;
+    console.log(this.props.currentQuestion);
     return (
       <div>
         <Jumbotron>
           {isStartGame ? (
             <div>
-              <h1>Questions:</h1>
+              <h2>{this.props.currentQuestion["question"]}</h2>
+              <ListGroup>
+                {this.props.currentChoices.map((choice) => (
+                  <ListGroup.Item
+                    action
+                    className="outline-secondary"
+                    key={this.props.currentChoices.indexOf(choice)}
+                  >
+                    {choice}
+                  </ListGroup.Item>
+                ))}
+              </ListGroup>
               <button
                 className="btn btn-secondary btn-sm"
                 onClick={this.props.onGetNextQuestion}
