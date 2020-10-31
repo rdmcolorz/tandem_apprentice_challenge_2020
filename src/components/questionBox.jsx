@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Jumbotron from "react-bootstrap/Jumbotron";
 
 class QuestionBox extends Component {
   shuffleArray(array) {
@@ -7,10 +8,34 @@ class QuestionBox extends Component {
       [array[i], array[j]] = [array[j], array[i]];
     }
   }
+
   render() {
+    let isStartGame = this.props.state.isStartGame;
     return (
       <div>
-        <h1>Question box</h1>
+        <Jumbotron>
+          {isStartGame ? (
+            <div>
+              <h1>Questions:</h1>
+              <button
+                className="btn btn-secondary btn-sm"
+                onClick={this.props.onGetNextQuestion}
+              >
+                Submit
+              </button>
+            </div>
+          ) : (
+            <div>
+              <h1>Welcome to Tandem Trivia!</h1>
+              <button
+                className="btn btn-secondary btn-sm"
+                onClick={this.props.onStartGame}
+              >
+                Start Game
+              </button>
+            </div>
+          )}
+        </Jumbotron>
       </div>
     );
   }
