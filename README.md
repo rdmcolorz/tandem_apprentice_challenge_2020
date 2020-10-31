@@ -1,3 +1,9 @@
+# Tandem for 400!
+
+## Description
+
+This is a trivia app for Tandem!
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
