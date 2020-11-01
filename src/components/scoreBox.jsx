@@ -7,7 +7,7 @@ class ScoreBox extends Component {
   render() {
     return (
       <Jumbotron>
-        <h1>Your score:</h1>
+        <h1>Your score: {this.props.score} / 10</h1>
         <Button onClick={this.props.onRestart}>Play Again!</Button>
       </Jumbotron>
     );

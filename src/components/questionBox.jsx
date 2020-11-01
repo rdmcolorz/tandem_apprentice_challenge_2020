@@ -28,12 +28,16 @@ class QuestionBox extends Component {
             <ListGroup>
               {choices.map((choice) => (
                 <ListGroup.Item
-                  action
+                  action={!this.props.isAnswered}
                   variant={this.revealAnswer(
                     this.props.currentQuestion,
                     choice
                   )}
-                  onClick={this.props.onCheckAnswer}
+                  onClick={this.props.onCheckAnswer.bind(
+                    null,
+                    this.props.currentQuestion,
+                    choice
+                  )}
                   key={this.props.currentChoices.indexOf(choice)}
                 >
                   {choice}

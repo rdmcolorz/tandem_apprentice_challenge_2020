@@ -39,6 +39,7 @@ class App extends Component {
       ]),
       isStartGame: true,
       questionIndex: 0,
+      score: 0,
     });
   };
   handleGetNextQuestion = () => {
@@ -65,17 +66,25 @@ class App extends Component {
   handleRestart = () => {
     this.setState({
       isEndGame: false,
+      score: 0,
+      isAnswered: false,
     });
   };
-  handleCheckAnswer = () => {
-    this.setState({ isAnswered: true });
+  handleCheckAnswer = (choices, choice) => {
+    let score = this.state.score;
+    console.log(choices["correct"], choice);
+    if (choice === choices["correct"]) {
+      console.log("hello");
+      score++;
+    }
+    this.setState({ isAnswered: true, score: score });
   };
 
   render() {
     return (
       <React.Fragment>
         {this.state.isEndGame ? (
-          <ScoreBox onRestart={this.handleRestart} />
+          <ScoreBox onRestart={this.handleRestart} score={this.state.score} />
         ) : (
           <QuestionBox
             currentQuestion={this.state.currentQuestion}
