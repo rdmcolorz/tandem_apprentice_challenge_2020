@@ -2,6 +2,7 @@ import "./css/App.css";
 import questions from "./data/Apprentice_TandemFor400_Data";
 import React, { Component } from "react";
 import QuestionBox from "./components/questionBox";
+import { Container } from "react-bootstrap";
 import ScoreBox from "./components/scoreBox";
 // import StartBox from "./components/startBox";
 
@@ -85,7 +86,7 @@ class App extends Component {
 
   render() {
     return (
-      <React.Fragment>
+      <Container fluid>
         {this.state.isEndGame ? (
           <ScoreBox onRestart={this.handleRestart} score={this.state.score} />
         ) : (
@@ -102,7 +103,7 @@ class App extends Component {
             onGetNextQuestion={this.handleGetNextQuestion}
           />
         )}
-      </React.Fragment>
+      </Container>
     );
   }
 }
