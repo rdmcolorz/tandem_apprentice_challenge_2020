@@ -4,7 +4,7 @@ import React from "react";
 import App from "./App";
 
 test("render App", () => {
-  const { container, getByText } = render(<App />);
+  const { getByText } = render(<App />);
   expect(getByText("Welcome to Tandem Trivia!")).toBeInTheDocument();
   expect(getByText("Start Game")).toBeInTheDocument();
 });
