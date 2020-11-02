@@ -10,7 +10,7 @@ I am currently learning react-native for a side project, so I decided to use rea
 
 Before coding, I drew a simple layout (F1) and made sure I covered the challenge criteria. One important feature I added to the app was shuffling the multi-choices so the they won't be in the same order every time you play the game.
 
-(F1):
+(F1):  
 <img src="public/layout.jpg" alt="f1" width="300"/>
 
 For this version I only implemented the question box portion, and plan to improve it with timer, ability to add questions, compare with other players, etc. After playing and testing the app a few times I also thought this can be a very useful app to practice exams!
@@ -19,6 +19,6 @@ I didn't have a lot of experience with testing, but always knew it was important
 
 ### Launching the app on localhost
 
-npm version: `npm@6.14.8`
-`npm install`
+npm version: `npm@6.14.8`  
+`npm install`  
 `npm start`
