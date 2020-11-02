@@ -9,6 +9,7 @@ This is a trivia app for the Tandem apprenticeship challenge! For more detail pl
 I am currently learning react-native for a side project, so I decided to use react for this challenge! I started by figuring out the basics of building a react app from [this video](https://www.youtube.com/watch?v=Ke90Tje7VS0&ab_channel=ProgrammingwithMosh):
 
 Before coding, I drew a simple layout (F1) and made sure I covered the challenge criteria. One important feature I added to the app was shuffling the multi-choices so the they won't be in the same order every time you play the game.
+
 (F1):
 <img src="public/layout.jpg" alt="f1" width="300"/>
 
