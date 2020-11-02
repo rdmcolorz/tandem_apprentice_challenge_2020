@@ -4,7 +4,6 @@ import React, { Component } from "react";
 import QuestionBox from "./components/questionBox";
 import { Container } from "react-bootstrap";
 import ScoreBox from "./components/scoreBox";
-// import StartBox from "./components/startBox";
 
 class App extends Component {
   state = {
@@ -93,8 +92,6 @@ class App extends Component {
           <QuestionBox
             currentQuestion={this.state.currentQuestion}
             currentChoices={this.state.currentChoices}
-            // randomQuestions={this.state.randomQuestions}
-
             isAnswered={this.state.isAnswered}
             isStartGame={this.state.isStartGame}
             isEndGame={this.state.isEndGame}

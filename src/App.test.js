@@ -1,21 +1,30 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import ReactDOM from "react-dom";
 import React from "react";
 import App from "./App";
 
-it("renders without crashing", () => {
-  const div = document.createElement("div");
-  ReactDOM.render(<App />, div);
-});
-
-test("Start game", () => {
+test("render App", () => {
   const { container, getByText } = render(<App />);
   expect(getByText("Welcome to Tandem Trivia!")).toBeInTheDocument();
-  // userEvent.click(screen.getByText("Start Game"));
-  // expect(screen.getByLabelText);
+  expect(getByText("Start Game")).toBeInTheDocument();
 });
 
-it("renders questionBox correctly", () => {
-  render();
+test("start game", () => {
+  const { container } = render(<App />);
+  userEvent.click(screen.getByText("Start Game"));
+  expect(
+    container.querySelector('[class="container-fluid"]')
+  ).toBeInTheDocument();
+  expect(container.querySelector('[class="list-group"]')).toBeInTheDocument();
+});
+
+test("answer question", () => {
+  const { container } = render(<App />);
+  userEvent.click(screen.getByText("Start Game"));
+  userEvent.click(
+    container.querySelector(
+      '[class="list-group-item list-group-item-outline-dark list-group-item-action"]'
+    )
+  );
+  expect(screen.getByText("Next Question")).toBeInTheDocument();
 });

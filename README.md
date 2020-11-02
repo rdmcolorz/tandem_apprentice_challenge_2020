@@ -22,3 +22,7 @@ I didn't have a lot of experience with testing, but always knew it was important
 npm version: `npm@6.14.8`  
 `npm install`  
 `npm start`
+
+### Running tests
+
+`npm test`
