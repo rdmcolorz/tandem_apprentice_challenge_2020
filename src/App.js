@@ -1,4 +1,4 @@
-import "./App.css";
+import "./css/App.css";
 import questions from "./data/Apprentice_TandemFor400_Data";
 import React, { Component } from "react";
 import QuestionBox from "./components/questionBox";
@@ -30,29 +30,34 @@ class App extends Component {
       .sort(() => 0.5 - Math.random())
       .slice(0, 10);
 
+    // init first question, combine choices and shuffle them
+    const choices = this.shuffleArray([
+      ...randomQuestions[0]["incorrect"],
+      randomQuestions[0]["correct"],
+    ]);
+
     this.setState({
       randomQuestions: randomQuestions,
       currentQuestion: randomQuestions[0],
-      currentChoices: this.shuffleArray([
-        ...randomQuestions[0]["incorrect"],
-        randomQuestions[0]["correct"],
-      ]),
+      currentChoices: choices,
       isStartGame: true,
       questionIndex: 0,
       score: 0,
     });
   };
+
   handleGetNextQuestion = () => {
     const randomQuestions = this.state.randomQuestions;
     const questionIndex = this.state.questionIndex + 1;
 
     if (questionIndex < 10) {
+      let choices = this.shuffleArray([
+        ...randomQuestions[questionIndex]["incorrect"],
+        randomQuestions[questionIndex]["correct"],
+      ]);
       this.setState({
         currentQuestion: randomQuestions[questionIndex],
-        currentChoices: this.shuffleArray([
-          ...randomQuestions[questionIndex]["incorrect"],
-          randomQuestions[questionIndex]["correct"],
-        ]),
+        currentChoices: choices,
         questionIndex: questionIndex,
         isAnswered: false,
       });
@@ -72,9 +77,7 @@ class App extends Component {
   };
   handleCheckAnswer = (choices, choice) => {
     let score = this.state.score;
-    console.log(choices["correct"], choice);
     if (choice === choices["correct"]) {
-      console.log("hello");
       score++;
     }
     this.setState({ isAnswered: true, score: score });
